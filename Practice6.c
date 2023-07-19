@@ -6,15 +6,15 @@
 // 	scanf("%d",&N);
 // 	char s[2000001];
 // 	int flag;
-// 	for(int i=0;i<N;i++)
+// 	for(int j=0;j<N;j++)
 //     {
 // 		flag=0;
 // 		scanf("%s",s);
-// 		for(int i=0;i<strlen(s)-1;i++)
+// 		for(int j=0;j<strlen(s)-1;j++)
 //         {
-// 			if(s[i]>='A'&&s[i]<='Z')
+// 			if(s[j]>='A'&&s[j]<='Z')
 //             {
-// 				if(s[i+1]==s[i]+32||s[i+1]==s[i]+1)
+// 				if(s[j+1]==s[j]+32||s[j+1]==s[j]+1)
 //                 {
 // 					flag=flag+1;
 // 				}
@@ -23,9 +23,9 @@
 // 					flag=-1;
 // 				}
 // 			}
-//             if(s[i]>='a'&&s[i]<='z')
+//             if(s[j]>='a'&&s[j]<='z')
 //             {
-// 				if(s[i+1]==s[i]-32||s[i+1]==s[i]-1)
+// 				if(s[j+1]==s[j]-32||s[j+1]==s[j]-1)
 //                 {
 // 					flag+=1;
 // 				}
@@ -51,19 +51,19 @@
 #include<string.h>
 int main()
 {
-	int N,i,length;
-	int a[0];
-	char s[0];
+	int N,i,j,length=0;
+	int a[100];
+	char s[20];
 	scanf("%d",&N);
 	for(i=0;i<N;i++)
 	{
 		scanf("%s",s);
 		length=strlen(s);
-		for(i=0;i<length-1;i++)
+		for(j=0;j<length-1;j++)
 		{
-			if(s[i]>'A'&&s[i]<'Z')
+			if(s[j]>'A'&&s[j]<'Z')
 			{
-				if(s[i]+32==s[i+1]||s[i]==s[i+1]+1)
+				if(s[j]+32==s[j+1]||s[j]==s[j+1]+1)
 				{
 					continue;
 				}
@@ -73,9 +73,9 @@ int main()
 					break;
 				}
 			}
-			if(s[i]>'a'&&s[i]<'z')
+			if(s[j]>'a'&&s[j]<'z')
 			{
-				if(s[i]-32==s[i+1]||s[i]==s[i+1]-1)
+				if(s[j]-32==s[j+1]||s[j]==s[j+1]-1)
 				{
 					continue;
 				}
@@ -86,6 +86,14 @@ int main()
 				}
 			}
 		}
+		if(j==length-1)
+		{
+			a[i]='y';
+		}
+	}
+	for(i=0;i<N;i++)
+	{
+		printf("%c\n",a[i]);
 	}
 	return 0;
 }
